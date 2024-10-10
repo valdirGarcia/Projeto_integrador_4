@@ -1,0 +1,17 @@
+# Ambiente virtual
+venv/
+env/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+Scripts/
+
+# Arquivos do banco de dados SQLite (se estiver usando SQLite)
+*.sqlite3
+
+# Arquivos de migrações
+*/migrations/*
+
+# Arquivos do sistema operacional
+.DS_Store

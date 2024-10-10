@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Meu Site</h1>
+            </div>
+            <div class="search-container">
+                <form action="{% url 'app:index' %}" method="get">
+                    <input type="text" name="genero" placeholder="Buscar por gênero...">
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container mt-5">
+        <h2>Filmes</h2>
+        <div id="filmCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for filme in filmes %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row justify-content-center">
+                            <div class="col-4 text-center">
+                                <a href="{% url 'app:detalhes_filme' filme.id %}">
+                                    <img src="{{ filme.imagem.url }}" class="d-block w-100" alt="{{ filme.titulo }}">
+                                </a>
+                                <h5>{{ filme.titulo }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#filmCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#filmCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

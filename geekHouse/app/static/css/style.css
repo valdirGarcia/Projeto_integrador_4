@@ -1,0 +1,90 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #141414; /* Cor de fundo escura */
+    padding: 10px 20px;
+    color: white;
+    border-bottom: 2px solid #333; /* Linha de separação sutil */
+}
+
+/* Container do cabeçalho */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo do logo */
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Estilo do container de busca */
+.search-container {
+    flex: 1;
+    text-align: center;
+}
+
+.search-container form {
+    display: flex;
+    justify-content: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 20px 0 0 20px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 0 20px 20px 0;
+    background-color: #0063e5; /* Azul Disney+ */
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #0051a2; /* Azul mais escuro para o hover */
+}
+
+header {
+    background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
+    padding: 20px 0; /* Espaçamento superior e inferior */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Espaça o logo e a barra de pesquisa */
+    align-items: center;
+    max-width: 1200px; /* Largura máxima para o cabeçalho */
+    margin: 0 auto; /* Centraliza o cabeçalho na página */
+}
+
+.carousel-item img {
+    max-height: 300px; /* Define uma altura máxima para as imagens */
+    object-fit: cover; /* Ajusta a imagem para preencher o espaço sem distorção */
+}
+
+h2 {
+    text-align: center; /* Centraliza o título "Filmes" */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+

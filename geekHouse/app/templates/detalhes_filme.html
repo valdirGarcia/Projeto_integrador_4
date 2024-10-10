@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ filme.titulo }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ filme.titulo }}</h1>
+        <a href="{% url 'app:index' %}">Voltar</a>
+    </header>
+    
+    <div class="filme-detalhes">
+        <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+        <h2>Descrição</h2>
+        <p>{{ filme.descricao }}</p>
+        <h3>Diretor: {{ filme.director }}</h3>
+        <h3>Gênero: {{ filme.genero }}</h3>
+        <h3>Ano: {{ filme.ano }}</h3>
+    </div>
+</body>
+</html>
