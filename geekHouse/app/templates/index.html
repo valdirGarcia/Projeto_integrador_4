@@ -33,7 +33,7 @@
                         <div class="row justify-content-center">
                             <div class="col-4 text-center">
                                 <a href="{% url 'app:detalhes_filme' filme.id %}">
-                                    <img src="{{ filme.imagem.url }}" class="d-block w-100" alt="{{ filme.titulo }}">
+                                    <img src="{{ filme.imagem_url }}" class="d-block w-100" alt="{{ filme.titulo }}">
                                 </a>
                                 <h5>{{ filme.titulo }}</h5>
                             </div>

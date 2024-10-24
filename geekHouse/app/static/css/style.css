@@ -1,70 +1,17 @@
-/* Reset básico */
-body, html {
+/* Reset básico para garantir que todos os elementos tenham um padding e margin padrão */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
-/* Estilo do cabeçalho */
-header {
-    background-color: #141414; /* Cor de fundo escura */
-    padding: 10px 20px;
-    color: white;
-    border-bottom: 2px solid #333; /* Linha de separação sutil */
+/* Estilos para o corpo do documento */
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão do corpo */
+    background-color: #f4f4f4; /* Cor de fundo leve para a página */
 }
 
-/* Container do cabeçalho */
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Estilo do logo */
-.logo h1 {
-    font-size: 24px;
-    margin: 0;
-    font-weight: 700;
-}
-
-/* Estilo do container de busca */
-.search-container {
-    flex: 1;
-    text-align: center;
-}
-
-.search-container form {
-    display: flex;
-    justify-content: center;
-}
-
-.search-container input[type="text"] {
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 20px 0 0 20px;
-    width: 100%;
-    max-width: 400px;
-    font-size: 16px;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    border: 1px solid #333;
-    border-radius: 0 20px 20px 0;
-    background-color: #0063e5; /* Azul Disney+ */
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.search-container button:hover {
-    background-color: #0051a2; /* Azul mais escuro para o hover */
-}
-
+/* Estilos para o cabeçalho */
 header {
     background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
     padding: 20px 0; /* Espaçamento superior e inferior */
@@ -78,13 +25,76 @@ header {
     margin: 0 auto; /* Centraliza o cabeçalho na página */
 }
 
-.carousel-item img {
-    max-height: 300px; /* Define uma altura máxima para as imagens */
-    object-fit: cover; /* Ajusta a imagem para preencher o espaço sem distorção */
+/* Estilos para a barra de pesquisa */
+.search-container form {
+    display: flex;
+    align-items: center; /* Alinha itens verticalmente */
 }
 
+.search-container input[type="text"] {
+    padding: 10px; /* Espaçamento interno do campo de busca */
+    border: 1px solid #ced4da; /* Borda leve para o campo de busca */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-right: 10px; /* Espaçamento à direita do campo de busca */
+}
+
+.search-container button {
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 4px; /* Bordas arredondadas para o botão */
+    cursor: pointer; /* Cursor do mouse muda ao passar sobre o botão */
+}
+
+.search-container button:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* Estilos para a seção de filmes */
+.container {
+    max-width: 1200px; /* Largura máxima para a seção de filmes */
+    margin: 20px auto; /* Centraliza a seção na página */
+}
+
+/* Título da seção de filmes */
 h2 {
     text-align: center; /* Centraliza o título "Filmes" */
     margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
 
+/* Estilos para o carrossel de filmes */
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Define uma altura fixa para o item do carrossel */
+    padding: 10px; /* Espaçamento ao redor do item */
+}
+
+.carousel-item img {
+    max-height: 100%; /* Garante que a altura da imagem não exceda o contêiner */
+    max-width: 100%; /* Garante que a largura da imagem não exceda o contêiner */
+    object-fit: contain; /* Ajusta a imagem para caber sem cortar */
+}
+
+/* Estilos para os detalhes do filme */
+.carousel-item h5 {
+    text-align: center; /* Centraliza o título do filme */
+    margin-top: 10px; /* Espaçamento acima do título do filme */
+}
+
+/* Adiciona uma margem inferior aos itens do carrossel */
+.carousel-item {
+    margin-bottom: 20px; /* Espaçamento abaixo do item do carrossel */
+}
+
+/* Estilos gerais */
+a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: inherit; /* Faz os links herdarem a cor do texto pai */
+}
+
+a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}

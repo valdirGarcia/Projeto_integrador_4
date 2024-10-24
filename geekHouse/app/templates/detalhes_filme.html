@@ -11,11 +11,16 @@
 <body>
     <header>
         <h1>{{ filme.titulo }}</h1>
-        <a href="{% url 'app:index' %}">Voltar</a>
+        <a href="{% url 'app:index' %}">Voltar</a>  <!-- Link para voltar à página principal -->
     </header>
     
     <div class="filme-detalhes">
-        <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+        {% if filme.imagem_url %}  <!-- Verifica se há imagem URL -->
+            <img src="{{ filme.imagem_url }}" alt="{{ filme.titulo }}">  <!-- Usa a imagem da URL -->
+        {% else %}
+            <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">  <!-- Usa a imagem local, se não houver URL -->
+        {% endif %}
+        
         <h2>Descrição</h2>
         <p>{{ filme.descricao }}</p>
         <h3>Diretor: {{ filme.director }}</h3>
