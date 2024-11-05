@@ -1,15 +1,22 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Filme
+from django.db.models import Q
 
 def index(request):
-    genero = request.GET.get('genero')
-    if genero:
-        filmes = Filme.objects.filter(genero__icontains=genero)
+    query = request.GET.get('busca')  # Mantenha o nome 'genero' na busca para compatibilidade com o front-end
+
+    if query:
+        filmes = Filme.objects.filter(
+            Q(genero__icontains=query) |
+            Q(titulo__icontains=query) |
+            Q(director__icontains=query)
+        )
     else:
-        filmes = Filme.objects.all()[:10]  # Retornar os primeiros 10 filmes se não houver busca
+        filmes = Filme.objects.all()[:10]  
 
     return render(request, "index.html", {'filmes': filmes})
 
+
 def detalhes_filme(request, pk):
-    filme = get_object_or_404(Filme, pk=pk)  # Tenta encontrar o filme pelo ID
+    filme = get_object_or_404(Filme, pk=pk)  
     return render(request, 'detalhes_filme.html', {'filme': filme})

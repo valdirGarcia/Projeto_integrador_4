@@ -68,7 +68,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px; /* Define uma altura fixa para o item do carrossel */
+    /*height: 300px;  aqui da pipino*/ 
     padding: 10px; /* Espaçamento ao redor do item */
 }
 
