@@ -15,11 +15,14 @@
     </header>
     
     <div class="filme-detalhes">
-        {% if filme.imagem_url %}  <!-- Verifica se há imagem URL -->
-            <img src="{{ filme.imagem_url }}" alt="{{ filme.titulo }}">  <!-- Usa a imagem da URL -->
+        {% if filme.imagem_url %}
+            <img src="{{ filme.imagem_url }}" alt="{{ filme.titulo }}">
         {% else %}
-            <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">  <!-- Usa a imagem local, se não houver URL -->
+            <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
         {% endif %}
+        
+        <!-- Link para "Me Recomende" no canto superior direito da imagem -->
+        <a href="{% url 'app:recomendacoes' filme.id %}" class="recomendacao-btn">Me Recomende</a>
         
         <h2>Descrição</h2>
         <p>{{ filme.descricao }}</p>

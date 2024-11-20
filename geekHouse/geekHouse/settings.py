@@ -29,6 +29,10 @@ SECRET_KEY = 'django-insecure-!g@o6jc_bcc@+5hqn&e6ei-!ajc)(+=i)p#$w@5v&+bqua2i)b
 TMDB_API_URL = 'https://api.themoviedb.org/3'
 TMDB_API_KEY = "ac562571f0871226fa75f67c5d873c77"
 
+# gemini key
+
+GEMINI_KEY = 'AIzaSyBb1L4-tpKQH3FzVYfxEPLUIw-kw95k5wU'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendações para {{ filme.titulo }}</title>
+</head>
+<body>
+    <header>
+        <h1>Recomendações para "{{ filme.titulo }}"</h1>
+        <a href="{% url 'app:detalhes_filme' filme.id %}">Voltar para o filme</a>
+    </header>
+
+    <div>
+        <h2>Recomendações de filmes:</h2>
+        
+        {% if recomendacoes %}
+            <!-- Aplica o filtro linebreaksbr para transformar quebras de linha em <br> -->
+            <p>{{ recomendacoes|linebreaksbr }}</p>
+        {% else %}
+            <p>Não há recomendações no momento.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
