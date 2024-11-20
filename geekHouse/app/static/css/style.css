@@ -1,100 +1,207 @@
-/* Reset básico para garantir que todos os elementos tenham um padding e margin padrão */
-* {
-    box-sizing: border-box;
+/* Body */
+body {
     margin: 0;
+    background-color: #141414; /* Cor de fundo similar à da Netflix */
+    color: #fff;
+}
+
+/* Títulos principais */
+h1, h2 {
+    color:white; /* Cor laranja para títulos */
+}
+
+/* Carrossel */
+#carouselExampleControls {
+    margin: 0 auto;
+    max-width: 100%;
+    height: 820px;
+    background: #141414;
+    position: relative;
+}
+
+#carouselExampleControls:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 1) 100%);
+    pointer-events: none;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 820px;
+    object-fit: cover;
+}
+
+/* Seção de Filmes */
+#filmes {
+    position: relative; /* A seção filmes precisa ter um posicionamento relativo */
+    z-index: 10; /* Definindo o z-index para garantir que a seção filmes fique sobre o carousel */
+    margin-top: -140px; /* Ajuste a margem negativa para "subir" a seção e fazer com que ela se sobreponha */
+    padding-top: 40px; /* Garanta que o conteúdo dentro da seção tenha um espaçamento adequado */
+    margin-left: 10%;
+}
+
+/* Ajuste para garantir que o título "FILMES" não seja afetado */
+#filmes h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Ajustar o container para garantir que ele não tenha margem extra */
+.container {
     padding: 0;
 }
 
-/* Estilos para o corpo do documento */
-body {
-    font-family: Arial, sans-serif; /* Fonte padrão do corpo */
-    background-color: #f4f4f4; /* Cor de fundo leve para a página */
+/* Ajuste para garantir que o container de filmes seja exibido corretamente */
+#filmes + .container {
+    margin-top: 0;
+}
+/* Navbar */
+.navbar {
+    background-color: transparent !important;
+    box-shadow: none;
 }
 
-/* Estilos para o cabeçalho */
-header {
-    background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
-    padding: 20px 0; /* Espaçamento superior e inferior */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fc6603 !important;
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between; /* Espaça o logo e a barra de pesquisa */
-    align-items: center;
-    max-width: 1200px; /* Largura máxima para o cabeçalho */
-    margin: 0 auto; /* Centraliza o cabeçalho na página */
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    text-transform: uppercase;
 }
 
-/* Estilos para a barra de pesquisa */
-.search-container form {
-    display: flex;
-    align-items: center; /* Alinha itens verticalmente */
+.navbar-nav .nav-link:hover {
+    color: gray !important;
 }
 
-.search-container input[type="text"] {
-    padding: 10px; /* Espaçamento interno do campo de busca */
-    border: 1px solid #ced4da; /* Borda leve para o campo de busca */
-    border-radius: 4px; /* Bordas arredondadas */
-    margin-right: 10px; /* Espaçamento à direita do campo de busca */
+.navbar .btn {
+    font-size: 1.3rem;
+    padding: 8px 15px;
+    border: none;
+    background-color: transparent;
+    color: white;
 }
 
-.search-container button {
-    padding: 10px 15px; /* Espaçamento interno do botão */
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Remove a borda padrão */
-    border-radius: 4px; /* Bordas arredondadas para o botão */
-    cursor: pointer; /* Cursor do mouse muda ao passar sobre o botão */
+.navbar .btn:hover {
+    color: #fc6603;
 }
 
-.search-container button:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+/* Navbar quando rolar */
+.navbar.scrolled {
+    background-color: #141414 !important;
+    transition: background-color 0.3s ease;
 }
 
-/* Estilos para a seção de filmes */
+/* Imagens arredondadas */
+.arredondada {
+    border-radius: 20px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.col-md-3 {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.col-md-3:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.col-md-3:hover .arredondada {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+/* Ajuste no container */
 .container {
-    max-width: 1200px; /* Largura máxima para a seção de filmes */
-    margin: 20px auto; /* Centraliza a seção na página */
+    padding: 0;
 }
 
-/* Título da seção de filmes */
-h2 {
-    text-align: center; /* Centraliza o título "Filmes" */
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
-}
-
-/* Estilos para o carrossel de filmes */
-.carousel-item {
+/* Garantir que a row se comporte de maneira flexível */
+.row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /*height: 300px;  aqui da pipino*/ 
-    padding: 10px; /* Espaçamento ao redor do item */
+    flex-wrap: nowrap;
+    gap: 30px;
 }
 
-.carousel-item img {
-    max-height: 100%; /* Garante que a altura da imagem não exceda o contêiner */
-    max-width: 100%; /* Garante que a largura da imagem não exceda o contêiner */
-    object-fit: contain; /* Ajusta a imagem para caber sem cortar */
+/* Estilo do campo de pesquisa */
+.search-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 10px 20px;
+    z-index: 9999;
+    transition: transform 0.3s ease-out;
+    transform: translateY(-100%);
 }
 
-/* Estilos para os detalhes do filme */
-.carousel-item h5 {
-    text-align: center; /* Centraliza o título do filme */
-    margin-top: 10px; /* Espaçamento acima do título do filme */
+/* Quando a barra de pesquisa estiver ativa */
+.search-container.active {
+    display: block;
+    transform: translateY(0);
 }
 
-/* Adiciona uma margem inferior aos itens do carrossel */
-.carousel-item {
-    margin-bottom: 20px; /* Espaçamento abaixo do item do carrossel */
+/* Estilo do campo de entrada */
+.search-input {
+    width: 80%;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    background-color: #333;
+    border: 1px solid #fc6603;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 10px;
 }
 
-/* Estilos gerais */
-a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    color: inherit; /* Faz os links herdarem a cor do texto pai */
+.search-container .btn {
+    background: transparent;
+    border: none;
+    color: #fc6603;
+    font-size: 1.5rem;
+}
+/* Estilo para o botão "Midia Lore" */
+.navbar .form-inline .btn {
+    font-size: 2.5rem; /* Tamanho da fonte igual ao da .navbar-brand */
+    font-weight: bold; /* Peso da fonte igual ao da .navbar-brand */
+    letter-spacing: 1px; /* Espaçamento entre as letras igual ao da .navbar-brand */
+    color: #fc6603 !important; /* Cor laranja igual ao da .navbar-brand */
+    background-color: transparent; /* Fundo transparente */
+    border: none; /* Sem borda */
+
+    padding: 0; /* Sem preenchimento extra */
+    transition: transform 0.2s ease, color 0.2s ease; /* Transição suave para o aumento de tamanho e cor */
 }
 
-a:hover {
-    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+/* Efeito hover: cor do texto branca quando passar o mouse */
+.navbar .form-inline .btn:hover {
+    color: #fff; /* Cor branca ao passar o mouse */
+}
+
+/* Quando o botão estiver em foco ou ativo (clicado), ele aumenta de tamanho */
+.navbar .form-inline .btn:focus, 
+.navbar .form-inline .btn:active {
+    outline: none !important; /* Remove o contorno padrão ao focar no botão */
+    transform: scale(1.1); /* Aumentar o tamanho do botão */
+    color: #fc6603 !important; /* Garante que a cor laranja não mude quando clicado */
+    background-color: transparent; /* Garante que o fundo não mude para verde */
+    box-shadow: none !important; /* Remove o contorno verde */
 }

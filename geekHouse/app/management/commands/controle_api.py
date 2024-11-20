@@ -23,7 +23,6 @@ GENERO_MAP = {
     '53': 'Thriller',
     '10752': 'Guerra',
     '37': 'Ocidental',
-    # Adicione mais gêneros conforme necessário
 }
 
 class Command(BaseCommand):
@@ -58,7 +57,7 @@ class Command(BaseCommand):
             dados = response.json()
             filmes.extend(dados['results'])
 
-            if len(dados['results']) == 0:  # Se não houver mais filmes, sai do loop
+            if len(dados['results']) == 0:
                 break
 
             pagina += 1
@@ -80,7 +79,7 @@ class Command(BaseCommand):
         except requests.exceptions.RequestException as e:
             print(f"Erro ao obter o diretor: {e}")
         
-        return 'Desconhecido'  # Retorna 'Desconhecido' caso não encontre o diretor
+        return 'Desconhecido'
 
     def adicionar_filmes(self, limite=50):
         """Adiciona filmes populares ao banco de dados, evitando duplicações e melhorando a performance."""
@@ -88,18 +87,18 @@ class Command(BaseCommand):
         filmes_a_adicionar = []
 
         for filme_data in filmes:
-            # Verifica se o filme já existe no banco de dados
+        # Verifica se o filme já existe no banco de dados
             if Filme.objects.filter(titulo=filme_data['title']).exists():
-                continue
+             continue
 
-            # Obtém o diretor usando a função obter_diretor
+        # Obtém o diretor usando a função obter_diretor
             diretor = self.obter_diretor(filme_data['id'])
-            
-            # Converte os IDs dos gêneros para seus nomes usando o GENERO_MAP
+        
+        # Converte os IDs dos gêneros para seus nomes usando o GENERO_MAP
             generos = [GENERO_MAP.get(str(g), 'Desconhecido') for g in filme_data['genre_ids']]
             genero = ', '.join(generos)
-            
-            # Verifica se a data de lançamento não está vazia antes de converter
+        
+        # Verifica se a data de lançamento não está vazia antes de converter
             ano_str = filme_data['release_date']
             ano = int(ano_str[:4]) if ano_str else 0  # Se a data estiver vazia, define como None
 
@@ -110,13 +109,15 @@ class Command(BaseCommand):
                 genero=genero,
                 ano=ano,  # Usando o ano corretamente aqui
                 imagem_url=f"https://image.tmdb.org/t/p/w500{filme_data['poster_path']}",
+                id_filme_tmdb=filme_data['id']  # Aqui estamos adicionando o ID do TMDB
             )
 
             filmes_a_adicionar.append(filme)
 
-        # Inserindo filmes de forma otimizada
+    # Inserindo filmes de forma otimizada
         if filmes_a_adicionar:
             Filme.objects.bulk_create(filmes_a_adicionar)
             print(f'{len(filmes_a_adicionar)} filmes adicionados ao banco de dados!')
         else:
             print('Nenhum filme novo foi adicionado.')
+
