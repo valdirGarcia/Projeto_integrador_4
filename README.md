@@ -62,5 +62,6 @@
 
 6. Acesso o site do navegador
    ```bash
-   python manage.py runserver
+   http://127.0.0.1:8000
+
 
