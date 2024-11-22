@@ -39,7 +39,7 @@
 ### **Passos**
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seuusuario/geekhouse.git
+   git clone https://github.com/valdirGarcia/Projeto_integrador_4.git
    cd geekhouse
 
 2. Crie e ative o ambiente virtual:
