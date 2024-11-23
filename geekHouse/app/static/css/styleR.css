@@ -1,0 +1,208 @@
+/* Body */
+body {
+    margin: 0;
+    background-color: #141414; /* Cor de fundo similar à da Netflix */
+    color: #fff;
+}
+
+/* Títulos principais */
+h1, h2 {
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    background-color: transparent !important;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: #141414 !important;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fc6603 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.navbar-nav .nav-link:hover {
+    color: gray !important;
+}
+
+.navbar .btn {
+    font-size: 1.3rem;
+    padding: 8px 15px;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.navbar .btn:hover {
+    color: #fc6603;
+}
+
+/* Botão "Midia Lore" */
+.navbar .form-inline .btn {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fc6603 !important;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.navbar .form-inline .btn:hover {
+    color: #fff;
+}
+
+.navbar .form-inline .btn:focus, 
+.navbar .form-inline .btn:active {
+    outline: none !important;
+    transform: scale(1.1);
+    color: #fc6603 !important;
+    background-color: transparent;
+    box-shadow: none !important;
+}
+
+/* Campo de Busca */
+#search-form {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+#search-form.active {
+    display: block;
+    width: 200px;
+    margin-right: 10px;
+}
+
+#search-form input[type="text"] {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid white;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    border-radius: 3px;
+}
+
+/* Ícone da Lupa */
+#search-icon {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#search-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+#search-icon:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+/* Ajuste do Formulário de Busca */
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+
+/* Cards de Detalhes */
+.card {
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-title {
+    color: #fc6603;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-img {
+    border-radius: 15px 0 0 15px;
+    object-fit: cover;
+}
+
+/* Botão de Recomendação */
+.recomendacao-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #fc6603; /* Cor de fundo para combinar com o tema */
+    color: white; /* Cor do texto */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid #fc6603; /* Adicionando borda para dar mais destaque */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.recomendacao-btn:hover {
+    background-color: #e55500; /* Cor de fundo quando o mouse passar */
+    transform: scale(1.1); /* Efeito de aumento */
+    color: white; /* Garantir que o texto se mantenha branco */
+    border-color: #e55500; /* Altera a cor da borda no hover */
+    text-decoration: none; /* Garante que o sublinhado não apareça ao passar o mouse */
+}
+
+/* Remover estilo de botão do Bootstrap aplicado ao .recomendacao-btn */
+.recomendacao-btn:focus,
+.recomendacao-btn:active {
+    outline: none; /* Remover o contorno quando o botão estiver ativo ou focado */
+    box-shadow: none; /* Remover sombra do botão quando ativo */
+}
+
+.container.detalhes-filme {
+    margin-top: 60px;  /* Menor margem superior para aproximar o conteúdo do topo */
+    padding: 50px;  /* Aumenta o espaço dentro do container */
+}
+/* Botão "Voltar para o filme" */
+.btn-voltar-filme {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #fc6603; /* Cor de fundo para combinar com o tema */
+    color: white; /* Cor do texto */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid #fc6603; /* Adicionando borda para dar mais destaque */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-voltar-filme:hover {
+    background-color: #e55500; /* Cor de fundo quando o mouse passar */
+    transform: scale(1.1); /* Efeito de aumento */
+    color: white; /* Garantir que o texto se mantenha branco */
+    border-color: #e55500; /* Altera a cor da borda no hover */
+}
+
+/* Remover estilo de botão do Bootstrap aplicado ao .btn-voltar-filme */
+.btn-voltar-filme:focus,
+.btn-voltar-filme:active {
+    outline: none; /* Remover o contorno quando o botão estiver ativo ou focado */
+    box-shadow: none; /* Remover sombra do botão quando ativo */
+}

@@ -7,7 +7,7 @@ body {
 
 /* Títulos principais */
 h1, h2 {
-    color:white; /* Cor laranja para títulos */
+    color: white;
 }
 
 /* Carrossel */
@@ -38,29 +38,38 @@ h1, h2 {
 
 /* Seção de Filmes */
 #filmes {
-    position: relative; /* A seção filmes precisa ter um posicionamento relativo */
-    z-index: 10; /* Definindo o z-index para garantir que a seção filmes fique sobre o carousel */
-    margin-top: -140px; /* Ajuste a margem negativa para "subir" a seção e fazer com que ela se sobreponha */
-    padding-top: 40px; /* Garanta que o conteúdo dentro da seção tenha um espaçamento adequado */
+    position: relative;
+    z-index: 10;
+    margin-top: -140px;
+    padding-top: 40px;
     margin-left: 10%;
 }
 
-/* Ajuste para garantir que o título "FILMES" não seja afetado */
 #filmes h2 {
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 2rem;
 }
+#livros {
+    padding: 0; /* Remove o padding do contêiner */
+}
 
-/* Ajustar o container para garantir que ele não tenha margem extra */
+#livros h2 {
+    margin-left: -17%; /* Remover qualquer margem à esquerda */
+    margin-bottom: 30px;
+    text-align: left; /* Garantir que o texto esteja alinhado à esquerda */
+    display: block; /* Garantir que o título esteja como um bloco */
+    width: 100%; /* Garantir que o título ocupe a largura total */
+}
+/* Ajuste do Container */
 .container {
     padding: 0;
 }
 
-/* Ajuste para garantir que o container de filmes seja exibido corretamente */
 #filmes + .container {
     margin-top: 0;
 }
+
 /* Navbar */
 .navbar {
     background-color: transparent !important;
@@ -97,13 +106,12 @@ h1, h2 {
     color: #fc6603;
 }
 
-/* Navbar quando rolar */
 .navbar.scrolled {
     background-color: #141414 !important;
     transition: background-color 0.3s ease;
 }
 
-/* Imagens arredondadas */
+/* Imagens Arredondadas */
 .arredondada {
     border-radius: 20px;
     width: 100%;
@@ -128,19 +136,14 @@ h1, h2 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
-/* Ajuste no container */
-.container {
-    padding: 0;
-}
-
-/* Garantir que a row se comporte de maneira flexível */
+/* Flexibilidade do Container */
 .row {
     display: flex;
     flex-wrap: nowrap;
     gap: 30px;
 }
 
-/* Estilo do campo de pesquisa */
+/* Campo de Pesquisa */
 .search-container {
     display: none;
     position: fixed;
@@ -154,13 +157,11 @@ h1, h2 {
     transform: translateY(-100%);
 }
 
-/* Quando a barra de pesquisa estiver ativa */
 .search-container.active {
     display: block;
     transform: translateY(0);
 }
 
-/* Estilo do campo de entrada */
 .search-input {
     width: 80%;
     padding: 8px 15px;
@@ -178,54 +179,77 @@ h1, h2 {
     color: #fc6603;
     font-size: 1.5rem;
 }
-/* Estilo para o botão "Midia Lore" */
+
+/* Botão "Midia Lore" */
 .navbar .form-inline .btn {
-    font-size: 2.5rem; /* Tamanho da fonte igual ao da .navbar-brand */
-    font-weight: bold; /* Peso da fonte igual ao da .navbar-brand */
-    letter-spacing: 1px; /* Espaçamento entre as letras igual ao da .navbar-brand */
-    color: #fc6603 !important; /* Cor laranja igual ao da .navbar-brand */
-    background-color: transparent; /* Fundo transparente */
-    border: none; /* Sem borda */
-
-    padding: 0; /* Sem preenchimento extra */
-    transition: transform 0.2s ease, color 0.2s ease; /* Transição suave para o aumento de tamanho e cor */
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fc6603 !important;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Efeito hover: cor do texto branca quando passar o mouse */
 .navbar .form-inline .btn:hover {
-    color: #fff; /* Cor branca ao passar o mouse */
+    color: #fff;
 }
 
-/* Quando o botão estiver em foco ou ativo (clicado), ele aumenta de tamanho */
 .navbar .form-inline .btn:focus, 
 .navbar .form-inline .btn:active {
-    outline: none !important; /* Remove o contorno padrão ao focar no botão */
-    transform: scale(1.1); /* Aumentar o tamanho do botão */
-    color: #fc6603 !important; /* Garante que a cor laranja não mude quando clicado */
-    background-color: transparent; /* Garante que o fundo não mude para verde */
-    box-shadow: none !important; /* Remove o contorno verde */
+    outline: none !important;
+    transform: scale(1.1);
+    color: #fc6603 !important;
+    background-color: transparent;
+    box-shadow: none !important;
+}
+/* Ocultar o campo de busca inicialmente */
+#search-form {
+    display: none;
+    transition: all 0.3s ease;
 }
 
-/* Estilos gerais para o filme */
-.filme-detalhes {
-    position: relative;
+/* Quando o campo de busca estiver visível */
+#search-form.active {
+    display: block;
+    width: 200px; /* Ajuste conforme necessário */
+    margin-right: 10px; /* Para dar um espaço entre o campo de busca e a navbar */
 }
 
-/* Botão "Me Recomende" */
-.recomendacao-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #f39c12;
-    color: white;
+/* Ícone da lupa */
+#search-icon {
+    background: transparent;
     border: none;
-    padding: 10px;
-    font-size: 16px;
+    color: white;
+    font-size: 1.5rem;
     cursor: pointer;
+    margin-right: 10px; /* Espaço entre o ícone e o botão Midia Lore */
+    margin-top: -5px;
+}
+#search-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+#search-icon:hover {
+    transform: scale(1.2); /* Aumenta o ícone em 20% */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+/* Ajuste do formulário de busca para ficar no lugar correto */
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+#search-form input[type="text"] {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com transparência */
+    border: 1px solid white; /* Define o contorno (pode ajustar a cor conforme necessário) */
+    color: white; /* Define a cor do texto dentro do campo */
+    padding: 8px 15px; /* Ajuste do padding para deixar o campo bonito */
+    font-size: 1.2rem;
 }
 
-.recomendacao-btn:hover {
-    background-color: #e67e22;
+/* Remover borda ao focar no campo de busca */
+#search-form input[type="text"]:focus {
+    outline: none; /* Remove o contorno ao focar */
+    border-color:none; /* Mantém a cor do contorno ao focar */
 }
-
-
